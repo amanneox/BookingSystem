@@ -25,12 +25,6 @@
 /nbdist/
 /.nb-gradle/
 /src/main/resources/AwsCredentials.properties
-src/main/java/com/api/api/config/
-src/main/java/com/api/api/controller/
-src/main/java/com/api/api/exception/
-src/main/java/com/api/api/model/
-src/main/java/com/api/api/repository/
-src/main/java/com/api/api/service/
 src/main/resources/AwsCredentials.properties
 src/main/resources/static/
 src/main/resources/templates/
