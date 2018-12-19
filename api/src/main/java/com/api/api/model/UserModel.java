@@ -1,7 +1,5 @@
 package com.api.api.model;
 
-import com.api.api.AuditModel;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
