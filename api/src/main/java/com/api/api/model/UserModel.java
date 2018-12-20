@@ -25,8 +25,18 @@ public class UserModel extends AuditModel {
     @NotBlank
     private String username;
 
+    @NotBlank
+    private  String number;
     private int role;
     // Getters and Setters (Omitted for brevity)
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     public int getRole() {
         return role;
