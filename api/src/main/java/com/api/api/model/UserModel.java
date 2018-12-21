@@ -22,6 +22,10 @@ public class UserModel extends AuditModel {
     @NotBlank
     private String email;
 
+
+
+
+
     @NotBlank
     private String username;
 

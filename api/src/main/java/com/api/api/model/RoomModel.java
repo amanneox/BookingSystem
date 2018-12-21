@@ -2,14 +2,13 @@ package com.api.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "room_list")
 public class RoomModel extends AuditModel {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
