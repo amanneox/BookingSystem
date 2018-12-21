@@ -43,7 +43,9 @@ public class S3Service {
 
             s3client.putObject(new PutObjectRequest(bucketName, keyName, convFile ));
             logger.info("===================== Upload File - Done! =====================");
+
             Files.deleteIfExists(Paths.get(keyName));
+            
         } catch (AmazonServiceException ase) {
             logger.info("Caught an AmazonServiceException from PUT requests, rejected reasons:");
             logger.error("Error Message:    " + ase.getMessage());
