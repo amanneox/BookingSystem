@@ -20,16 +20,16 @@ public class UserModel extends AuditModel {
     private String password;
 
     @NotBlank
+    @Column(unique=true)
     private String email;
 
 
-
-
-
     @NotBlank
+    @Column(unique=true)
     private String username;
 
     @NotBlank
+    @Column(unique=true)
     private  String number;
     private int role;
     // Getters and Setters (Omitted for brevity)

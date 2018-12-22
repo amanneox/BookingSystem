@@ -1,6 +1,9 @@
 package com.api.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -18,17 +21,33 @@ public class RoomModel extends AuditModel {
     private String status;
 
     @NotBlank
+    private int count;
+
+    @NotBlank
     private float price;
 
     @NotBlank
     private String desc;
 
     @NotBlank
+    @Column(unique=true)
     private String room_no;
 
-    @ElementCollection
-    @JsonProperty("photos")
-    private List<PhotoModel> photos;
+
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "game_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private GameModel room;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public String getDesc() {
         return desc;
@@ -42,9 +61,6 @@ public class RoomModel extends AuditModel {
         return price;
     }
 
-    public List<PhotoModel> getPhotos() {
-        return photos;
-    }
 
     public String getRoom_no() {
         return room_no;
@@ -66,9 +82,6 @@ public class RoomModel extends AuditModel {
         this.id = id;
     }
 
-    public void setPhotos(List<PhotoModel> photos) {
-        this.photos = photos;
-    }
 
     public void setRoom_no(String room_no) {
         this.room_no = room_no;
