@@ -43,7 +43,7 @@ public class GameController {
                 .map(game -> {
 
                     game.setName(GameRequest.getName());
-                    game.setDesc(GameRequest.getDesc());
+                    game.setDescription(GameRequest.getDescription());
                     return GameRepo.save(game);
                 }).orElseThrow(() -> new ResourceNotFoundException("game not found with id " + GameId));
     }

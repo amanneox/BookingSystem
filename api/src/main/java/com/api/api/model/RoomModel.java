@@ -30,7 +30,7 @@ public class RoomModel extends AuditModel {
     private float price;
 
     @NotBlank
-    private String desc;
+    private String description;
 
     @NotBlank
     @Column(unique=true)
@@ -41,7 +41,7 @@ public class RoomModel extends AuditModel {
     @JoinColumn(name = "game_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private GameModel room;
+    private GameModel game;
 
     public int getSize() {
         return size;
@@ -51,12 +51,12 @@ public class RoomModel extends AuditModel {
         this.size = size;
     }
 
-    public GameModel getRoom() {
-        return room;
+    public GameModel getGame() {
+        return game;
     }
 
-    public void setRoom(GameModel room) {
-        this.room = room;
+    public void setGame(GameModel game) {
+        this.game = game;
     }
 
     public int getCount() {
@@ -67,8 +67,8 @@ public class RoomModel extends AuditModel {
         this.count = count;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
     public Long getId() {
@@ -92,8 +92,8 @@ public class RoomModel extends AuditModel {
         this.price = price;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setId(Long id) {
