@@ -1,6 +1,7 @@
 package com.api.api.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -20,11 +21,13 @@ public class UserModel extends AuditModel {
     private String password;
 
     @NotBlank
+    @Email
     @Column(unique=true)
     private String email;
 
 
     @NotBlank
+    @Size(max = 20)
     @Column(unique=true)
     private String username;
 

@@ -24,6 +24,9 @@ public class RoomModel extends AuditModel {
     private int count;
 
     @NotBlank
+    private  int size;
+
+    @NotBlank
     private float price;
 
     @NotBlank
@@ -34,12 +37,27 @@ public class RoomModel extends AuditModel {
     private String room_no;
 
 
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "game_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private GameModel room;
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public GameModel getRoom() {
+        return room;
+    }
+
+    public void setRoom(GameModel room) {
+        this.room = room;
+    }
 
     public int getCount() {
         return count;
