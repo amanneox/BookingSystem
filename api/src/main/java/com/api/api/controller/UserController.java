@@ -53,7 +53,6 @@ public class UserController {
         obj.put("token",jwtToken);
         obj.put("email",user.getEmail());
         obj.put("username",user.getUsername());
-        obj.put("role",user.getRole());
         obj.put("name",user.getName());
 
         return obj;

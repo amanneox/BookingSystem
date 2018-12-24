@@ -1,5 +1,7 @@
 package com.api.api.model;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -34,8 +36,7 @@ public class UserModel extends AuditModel {
     @NotBlank
     @Column(unique=true)
     private  String number;
-    private int role;
-    // Getters and Setters (Omitted for brevity)
+
 
     public String getNumber() {
         return number;
@@ -43,10 +44,6 @@ public class UserModel extends AuditModel {
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public int getRole() {
-        return role;
     }
 
     public Long getId() {
@@ -77,9 +74,6 @@ public class UserModel extends AuditModel {
         this.password = password;
     }
 
-    public void setRole(int role) {
-        this.role = role;
-    }
 
     public void setUsername(String username) {
         this.username = username;
