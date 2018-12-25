@@ -43,9 +43,9 @@ public class ClientController {
         return clientRepo.findById(clientId)
                 .map(client -> {
 
-                    client.setName(clientRequest.getName());
+
                     client.setBookingID(clientRequest.getBookingID());
-                    client.setEmail(clientRequest.getEmail());
+
                     return clientRepo.save(client);
                 }).orElseThrow(() -> new ResourceNotFoundException("Client not found with id " + clientId));
     }

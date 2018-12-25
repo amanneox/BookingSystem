@@ -1,12 +1,7 @@
 package com.api.api.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "client_list")
@@ -15,66 +10,63 @@ public class ClientModel extends AuditModel {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
-    @Size(min = 3, max = 100)
-    private String name;
-
-    @NotBlank
-    @Column(unique=true)
-    private String email;
-
-    @NotBlank
-    @Column(unique=true)
-    private String username;
-
-    @NotBlank
-    @Column(unique=true)
-    private  String number;
-
 
     @NotBlank
     @Column(unique=true)
     private  String bookingID;
 
-    public String getUsername() {
-        return username;
+    @NotBlank
+    private String status;
+
+    @NotBlank
+    private String gatewayInfo;
+
+
+    @NotBlank
+    private  Long user_id;
+
+    @NotBlank
+    private  Long room_id;
+
+    public Long getRoom_id() {
+        return room_id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public String getName() {
-        return name;
+    public void setRoom_id(Long room_id) {
+        this.room_id = room_id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public String getStatus() {
+        return status;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getGatewayInfo() {
+        return gatewayInfo;
+    }
+
+    public void setGatewayInfo(String gatewayInfo) {
+        this.gatewayInfo = gatewayInfo;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setBookingID(String bookingID) {
         this.bookingID = bookingID;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public String getEmail() {
-        return email;
-    }
     public String getBookingID() {
         return bookingID;
     }
-
 
     public Long getId() {
         return id;

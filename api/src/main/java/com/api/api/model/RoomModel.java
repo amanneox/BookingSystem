@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.List;
@@ -27,6 +28,7 @@ public class RoomModel extends AuditModel {
     private  int size;
 
     @NotBlank
+
     private float price;
 
     @NotBlank
