@@ -11,7 +11,6 @@ public class ClientModel extends AuditModel {
     private Long id;
 
 
-    @NotBlank
     @Column(unique=true)
     private  String bookingID;
 
@@ -22,10 +21,8 @@ public class ClientModel extends AuditModel {
     private String gatewayInfo;
 
 
-    @NotBlank
     private  Long user_id;
 
-    @NotBlank
     private  Long room_id;
 
     public Long getRoom_id() {

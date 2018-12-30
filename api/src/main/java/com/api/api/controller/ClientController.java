@@ -32,8 +32,25 @@ public class ClientController {
 
     }
 
+
+    @GetMapping("/client/find/{bookingID}")
+    public Optional<ClientModel> findClient(@PathVariable String bookingID) {
+        return clientRepo.findByBookingID(bookingID);
+
+    }
+
+
     @PostMapping("/client")
     public ClientModel createClient(@Valid @RequestBody ClientModel client) {
+
+        String letters = "ABCDEFGHJKMNPQRSTUXYabcdefghjkmnpqrstuxy123456789";
+
+            StringBuilder text = new StringBuilder();
+            for (int i = 0; i < 7; i++) {
+                text.append(letters.charAt((int) Math.floor(Math.random() * letters.length())));
+            }
+
+        client.setBookingID(String.valueOf(text));
         return clientRepo.save(client);
     }
 
