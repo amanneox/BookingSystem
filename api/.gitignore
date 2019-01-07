@@ -28,3 +28,8 @@
 src/main/resources/AwsCredentials.properties
 src/main/resources/static/
 src/main/resources/templates/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -16,7 +16,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.api'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = 1.8
 
 repositories {
@@ -25,10 +25,17 @@ repositories {
 }
 
 ext['springCloudVersion'] = 'Greenwich.RC1'
+dependencyManagement {
+	imports {
+		mavenBom 'software.amazon.awssdk:bom:2.0.0'
+	}
+}
 
 dependencies {
 	implementation group: 'net.minidev', name: 'json-smart', version: '2.3'
     implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	implementation('com.amazonaws:aws-java-sdk-ses')
+	implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 
 
 	implementation('org.springframework.boot:spring-boot-starter-actuator')
